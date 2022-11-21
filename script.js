@@ -37,3 +37,56 @@ navBar.addEventListener('dblclick', function(){
 });
 
 
+
+// Fonctionnalité 6
+
+let cards = document.getElementsByClassName("card");
+let head = document.querySelector('head');
+let reduced = document.createElement('style');
+reduced.innerText = '.reduced img {width: 20%} .reduced .card-text {display: none}';
+head.appendChild(reduced);
+[...cards].forEach(c => {
+  c.querySelector('.btn-success').addEventListener('mouseover', e => {
+    e.composedPath()[4].classList.toggle('reduced');
+  });
+});
+
+
+// Fonctionnalité 7
+
+let nextBtn = document.querySelector('.jumbotron .btn-secondary');
+nextBtn.addEventListener('click', () => {
+  let cardCols = document.querySelectorAll('.album .col-md-4');
+  cardCols[0].parentNode.insertBefore(cardCols[cardCols.length - 1], cardCols[0]);
+});
+
+
+// Fonctionnalité 8
+
+let prevBtn = document.querySelector('.jumbotron .btn-primary');
+prevBtn.addEventListener('click', e => {
+  e.preventDefault();
+  let cardCols = document.querySelectorAll('.album .col-md-4');
+  cardCols[0].parentNode.appendChild(cardCols[0]);
+});
+
+
+// Fonctionnalité 9
+
+let logo = document.querySelector('.navbar-brand');
+logo.addEventListener('keypress', e => {
+  switch (e.key) {
+    case 'a':
+      document.body.classList = 'col-4';
+      break;
+    case 'y':
+      document.body.classList = 'col-4 offset-4';
+      break;
+    case 'p':
+      document.body.classList = 'col-4 offset-8';
+      break;
+    case 'b':
+      document.body.classList = '';
+      break;
+  }
+})
