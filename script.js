@@ -6,7 +6,8 @@ listenFooter.addEventListener('click', function(){ count++; console.log("clique 
 
 // Fonctionnalité 2
 
-let navbarHeader = document.getElementById('navbarHeader');
+// let navbarHeader = document.getElementById('navbarHeader'); ou
+   let navbarHeader = document.querySelector('#navbarHeader');
 let hamburgerMenu = document.querySelector('button.navbar-toggler');
 hamburgerMenu.addEventListener('click', function(){ navbarHeader.classList.toggle("collapse");});
 
